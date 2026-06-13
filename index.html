@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TODO LIST</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="card">
+
+    <!-- LEFT -->
+    <div>
+
+      <div class="today-card">
+        <h2>TODAY</h2>
+        <button class="add-task-btn" data-type="today">+ Add Task</button>
+        <div class="today-paper"></div>
+      </div>
+
+      <div class="important-card">
+        <h2>IMPORTANT NOTES</h2>
+        <button class="add-task-btn" data-type="important">+ Add Note</button>
+        <div class="important-paper"></div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div>
+
+      <!-- TRACKER -->
+      <div class="tracker-card">
+        <h2>TRACKER</h2>
+
+        <div class="tracker-progress">
+          <div class="tracker-title">TASK PROGRESS</div>
+          <div class="tracker-stats">0 / 0 tasks</div>
+        </div>
+
+        <div class="bar-container">
+          <div class="bar"></div>
+        </div>
+
+        <div class="bar-text">0%</div>
+      </div>
+
+      <!-- TOMORROW -->
+      <div class="tomorrow-card">
+        <h2>TOMORROW</h2>
+        <button class="add-task-btn" data-type="tomorrow">+ Add Task</button>
+        <div class="tomorrow-paper"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
