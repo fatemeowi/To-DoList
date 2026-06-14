@@ -7,68 +7,105 @@ document.addEventListener("DOMContentLoaded", function () {
   const importantPaper = document.querySelector(".important-paper");
 
   function createTask(type) {
+
     const task = document.createElement("div");
     task.classList.add("task");
 
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
+    if (type === "important") {
 
-    const input = document.createElement("input");
-    input.type = "text";
+      const input = document.createElement("input");
 
-    input.placeholder =
-      type === "important"
-        ? "Write your note . . .˙ᵕ˙✦"
-        : "Write your task . . .˙ᵕ˙✦";
+      input.type = "text";
+      input.placeholder = "Write your note . . . ˙ᵕ˙✦";
 
-    checkbox.addEventListener("change", function () {
-      if (checkbox.checked) {
-        task.classList.add("done");
-      } else {
-        task.classList.remove("done");
-      }
+      task.appendChild(input);
 
-      updateTracker();
-    });
+    } else {
 
-    task.appendChild(checkbox);
-    task.appendChild(input);
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+
+      const input = document.createElement("input");
+
+      input.type = "text";
+      input.placeholder = "Write your task . . . ˙ᵕ˙✦";
+
+      checkbox.addEventListener("change", function () {
+
+        if (checkbox.checked) {
+          task.classList.add("done");
+        } else {
+          task.classList.remove("done");
+        }
+
+        updateTracker();
+
+      });
+
+      task.appendChild(checkbox);
+      task.appendChild(input);
+    }
 
     return task;
   }
 
   buttons.forEach(btn => {
+
     btn.addEventListener("click", function () {
+
       const type = btn.dataset.type;
+
       const task = createTask(type);
 
-      if (type === "today") todayPaper.appendChild(task);
-      if (type === "tomorrow") tomorrowPaper.appendChild(task);
-      if (type === "important") importantPaper.appendChild(task);
+      if (type === "today") {
+        todayPaper.appendChild(task);
+      }
+
+      if (type === "tomorrow") {
+        tomorrowPaper.appendChild(task);
+      }
+
+      if (type === "important") {
+        importantPaper.appendChild(task);
+      }
 
       updateTracker();
+
     });
+
   });
 
   function updateTracker() {
-    const tasks = document.querySelectorAll(".task");
+
+    const tasks =
+      document.querySelectorAll(".today-paper .task");
 
     let total = tasks.length;
     let done = 0;
 
     tasks.forEach(task => {
-      if (task.classList.contains("done")) done++;
+
+      if (task.classList.contains("done")) {
+        done++;
+      }
+
     });
 
-    let percent = total === 0 ? 0 : (done / total) * 100;
+    const percent =
+      total === 0
+        ? 0
+        : (done / total) * 100;
 
     const bar = document.querySelector(".bar");
     const barText = document.querySelector(".bar-text");
     const stats = document.querySelector(".tracker-stats");
 
-    if (bar) bar.style.width = percent + "%";
-    if (barText) barText.textContent = `${percent.toFixed(0)}%`;
-    if (stats) stats.textContent = `${done} / ${total} tasks`;
+    bar.style.width = percent + "%";
+    barText.textContent = `${Math.round(percent)}%`;
+    stats.textContent = `${done} / ${total} tasks`;
+
   }
+
+  updateTracker();
 
 });
