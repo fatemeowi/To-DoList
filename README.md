@@ -34,10 +34,6 @@ A simple and aesthetic planner application built with HTML, CSS, and JavaScript.
 * Drag & drop task management
 * Mobile optimization
 
-## Screenshot
-
-Add a screenshot of the project here.
-
 ## Author
 
 Made by Fatemeh
