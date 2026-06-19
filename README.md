@@ -32,7 +32,7 @@ A simple and aesthetic planner application built with HTML, CSS, and JavaScript.
 * Weekly planner
 * Custom themes
 * Drag & drop task management
-* Mobile optimization
+* Mobile optimization 
 
 ## Author
 
